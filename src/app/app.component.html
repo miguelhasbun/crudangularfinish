@@ -1,0 +1,53 @@
+<nav class ="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">
+    EL CONSEJO JEDI
+  </a>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col md-8 mt-4">
+      <ul class="list-jedi">
+        <li 
+          *ngFor=" let jedi of jediarray"
+           class="list-group-item list-group-item-action"
+          (click)="openforUpdate(jedi)"
+          [class.active]="jedi  == selectJedi"
+        >
+          <span class="badge bagde-primary">{{jedi.id}}</span>{{jedi.nombre}} - {{jedi.sable}}
+        </li>
+      </ul>
+      <div class="jedi">
+        <div class="jedi-body">
+            <div class="jedi-title">
+              Agrega un nuevo Jedi
+            </div>
+            <div class="form-group">
+              <input type="text" [(ngModel)]="selectJedi.nombre" placeholder="Ingrese un nombre" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" [(ngModel)]="selectJedi.sable" placeholder="Ingrese un color de sable" class="form-control">
+            </div>
+            <button (click)="addOrUpdate()" class="btn btn-primary">
+              SubmitJedi
+            </button>
+
+            <button
+              *ngIf="selectJedi.id !== 0"
+              class="btn btn-danger"
+              (click)="delete()"
+              >
+              Delete Jedi
+            </button>
+        </div>
+      </div>
+    </div>
+    <div class="col md-4">
+        <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    </div>
+  </div>
+</div>
+    
+  
+  
+  
